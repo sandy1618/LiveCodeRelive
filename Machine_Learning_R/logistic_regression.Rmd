@@ -1,0 +1,123 @@
+---
+title: "Playing with Logistic Regression"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+```{r echo=TRUE}
+setwd("/home/sandy/Educational/Programming_blog/Machine_Learning_R")
+# Data Exploration and visualization
+require(ISLR)
+names(Smarket)
+summary(Smarket)
+pairs(Smarket, col = Smarket$Direction)
+#fitting the model. 
+# glm.fit = glm( )
+cor(Smarket[,-9])
+attach(Smarket)
+plot(Direction)
+```
+## Theory Behind GLM. Generalized Linear modeeling. 
+Why use binomial as a glm family 
+decide whether the email is spam (1) or not (0). In this post, we call the model “binomial logistic regression”, since the variable to predict is binary, however, logistic regression can also be used to predict a dependent variable which can assume more than 2 values. In this second case, we call the model “multinomial logistic regression”. A typical example, for instance, would be classifying films between “Entertaining”, “borderline” or “boring”.
+
+[ref](https://datascienceplus.com/perform-logistic-regression-in-r/)
+[nice theory](https://tsmatz.wordpress.com/2017/08/30/glm-regression-logistic-poisson-gaussian-gamma-tutorial-with-r/)
+
+```{r echo=TRUE}
+#glm for model fitting. Uing binomial family
+glm.fit = glm(Direction~Lag1+ Lag2+ Lag3+Lag4+ Lag5+Volume, data=Smarket , family = binomial )
+glm.fit
+summary (glm.fit)
+coef(glm.fit)
+# making a prediction using the training data itself. lol. input = trainig data 
+#output = probability of each predictors. 
+glm.probs = predict(glm.fit, type = "response")
+glm.probs # predicted prob. stored here. 
+contrasts(Direction)
+Direction
+glm.pred = rep("Down", 1250)
+glm.pred
+glm.pred[glm.probs>.5 ] ="up"
+glm.pred # finally, the predicted probabilitys are conveted to down and up. 
+# now i wnat to compare, training output to glm.pred. 
+table(glm.pred, Direction)
+mean(glm.pred == Direction)
+```
+### In the above code, we used training data for both testing and validation. So, it was of no use . We now need to use data validation techniques by divind test and trainig dataset. 
+
+```{r echo=TRUE}
+train = (Year < 2005) # This set will become the training set.
+# note, this train is baiscally a boolean vector that is going to tell other data frame to select a subset based on this logic
+train
+Smarket.2005 = Smarket[!train,] #year containing 2005
+Smarket.2005
+Direction.2005 = Direction[!train] # test outputs for 2005
+Direction.2005
+
+#training the model , now with dataset below 2005
+glm.fit2 = glm(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume, data = Smarket, family = binomial(link = "logit"), subset = train)
+glm.probs2 = predict(glm.fit2, Smarket.2005,type = "response")
+# comparing
+glm.pred = rep("Down", 252)
+glm.pred
+glm.pred[glm.probs2>.5 ] ="Up"
+glm.pred # finally, the predicted probabilitys are conveted to down and up. 
+# now i wnat to compare, training output to glm.pred. 
+table(glm.pred, Direction.2005)
+mean(glm.pred == Direction)
+
+```
+
+# Using Titanic Dataset
+[Reference](https://datascienceplus.com/perform-logistic-regression-in-r/)
+
+```{r echo=TRUE}
+# Data Cleaning
+training.data.raw <- read.csv('./titanic/train.csv',header=T,na.strings=c(""))
+training.data.raw
+sapply(training.data.raw,function(x) sum(is.na(x)))
+sapply(training.data.raw, function(x) length(unique(x)))
+data <- subset(training.data.raw,select=c(2,3,5,6,7,8,10,12))
+data
+data$Age[is.na(data$Age)] <- mean(data$Age,na.rm=T)
+data
+is.factor(data$Sex)
+is.factor(data$Embarked)
+contrasts(data$Sex)
+contrasts(data$Embarked)
+data
+data <- data[!is.na(data$Embarked),]
+data
+rownames(data) <- NULL
+data
+
+#Model fitting 
+train <- data[1:800,]
+test <- data[801:889,]
+model <- glm(Survived ~.,family=binomial(link='logit'),data=train)
+summary(model)
+
+# Model Prediction 
+fitted.results <- predict(model,newdata=subset(test,select=c(2,3,4,5,6,7,8)),type='response')
+fitted.results <- ifelse(fitted.results > 0.5,1,0)
+misClasificError <- mean(fitted.results != test$Survived)
+print(paste('Accuracy',1-misClasificError))
+
+
+# Performance Measurement of a Binary Classifier. 
+library(ROCR)
+p <- predict(model, newdata=subset(test,select=c(2,3,4,5,6,7,8)), type="response")
+pr <- prediction(p, test$Survived)
+prf <- performance(pr, measure = "tpr", x.measure = "fpr")
+plot(prf)
+
+auc <- performance(pr, measure = "auc")
+auc <- auc@y.values[[1]]
+auc
+
+
+
+```
