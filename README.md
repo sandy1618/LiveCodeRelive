@@ -1,10 +1,16 @@
 # Twitter Data Analysis Blueprint
 ---------------------------------
+### Hirarchy of Tweet Data 
+---
+Tweet - Also referred to as a ‘Status’ object, has many ‘root-level’ attributes, parent of other objects.
+- User - Twitter Account level metadata. Will include any available account-level enrichments, such as Profile geo.
+- Entities - Contains object arrays of #hashtags, @mentions, $symbols, URLs, and media.
+- Extended Entities - Contains up to four native photos, or one video or animated GIF.
+- Places - Parent to ‘coordinates’ object.
+---
 ```json
 {
-  "_id": 1213396542335287300,
-  "time_retrieved": "Sat, 04 Jan 2020 18:47:47 GMT",
-  "tweet_data": {
+   "tweet_data": {
     "contributors": null,
     "coordinates": null,
     "created_at": "Sat, 04 Jan 2020 09:47:34 GMT",
@@ -110,3 +116,9 @@
   }
 }
 ```
+
+
+-[ ] Tweets that have User Mentions are important because they usually mention the users that are influential . 
+
+
+
