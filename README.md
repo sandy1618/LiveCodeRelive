@@ -9,7 +9,8 @@ Tweet - Also referred to as a ‘Status’ object, has many ‘root-level’ att
 - Places - Parent to ‘coordinates’ object.
 ---
 **Tweet Object Feature Table Selection**
-FeatureID | Type | Usage Description
+
+| FeatureID | Type | Usage Description |
 ---------|-------|-----------------
 -[ ] created_at|date text | Date text -> Date time, time stamp of the tweets
 a asdfsaf| b | c
