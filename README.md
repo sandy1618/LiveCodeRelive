@@ -18,15 +18,36 @@ created_at |Text.date  | Date text -> Date time, time stamp of the tweets
  entities.symbols |  | 
  entities.urls | Text.urls |
  favorite_count| Numeric | This is likes for tweet
+ 
 *will complete later*
+#### Structure
+---
+**Feature**
+Type And Type Converison
+- Direct Use : How? 
+    - As Input 
+    - As Output 
+- Derived Feature : 
+    - As Input 
+    - As ouptut
+---
 
 1. **created_at** 
    UTC time : The time is in seconds. 
     Resampling the time into bins of interval 5 mins, 1 hour, 4 hour , 1day etc and taking th count will give number of tweets per interval.
     [note] Deciding on the interval in key, can be done by view differet rates or can also be fed as a parameter and decide based on changing in parameter. 
+    Deciding the time interval -> get the graph 
+    Decide on -> 
+    - Range of Threshold of ROT (rate of tweet),slope.  The range of rates of tweet after Nth interval for a particular tweet 
     
-    
-                            **tweet cycle** 
+---   
+[side branch] **Tweet cycle** 
+Tweets can be part of Beginning of Trend , Propagation of Trend, or termination of trend. 
+Identifying where the tweet is in the tweet cycle , can help us know if there would be an expected increase of a trend , saturation of trend or end of trend . 
+*Todo: This requires further thinking* 
+---
+
+
 
 
 
