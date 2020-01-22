@@ -20,14 +20,13 @@ created_at |Text.date  | Date text -> Date time, time stamp of the tweets
  favorite_count| Numeric | This is likes for tweet
 *will complete later*
 
-created_at 
-   - UTC time 
-        - we can preprocess the data 
-            - sadfasf
-        
-
-
-
+1. **created_at** 
+   UTC time : The time is in seconds. 
+    Resampling the time into bins of interval 5 mins, 1 hour, 4 hour , 1day etc and taking th count will give number of tweets per interval.
+    [note] Deciding on the interval in key, can be done by view differet rates or can also be fed as a parameter and decide based on changing in parameter. 
+    
+    
+                            **tweet cycle** 
 
 
 
