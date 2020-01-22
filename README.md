@@ -9,15 +9,23 @@ Tweet - Also referred to as a ‘Status’ object, has many ‘root-level’ att
 - Places - Parent to ‘coordinates’ object.
 ---
 **Tweet Object Feature Table Selection**
+[Reference : Twitter-Api => Twee Object](https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object)
 
-FeatureID | Type | Usage Description 
+ FeatureID | Type | Usage Description 
 ---------|-------|-----------------
 created_at |Text.date  | Date text -> Date time, time stamp of the tweets
  entities.hashtags| Text |  
  entities.symbols |  | 
  entities.urls | Text.urls |
- |
- 
+ favorite_count| Numeric | This is likes for tweet
+*will complete later*
+
+created_at 
+   - UTC time 
+        - we can preprocess the data 
+            - sadfasf
+        
+
 
 
 
