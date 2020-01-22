@@ -23,7 +23,6 @@ created_at |Text.date  | Date text -> Date time, time stamp of the tweets
 #### Structure
 ---
 **Feature**
-
 Type And Type Converison
 - Direct Use : How? 
     - As Input 
