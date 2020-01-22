@@ -8,6 +8,15 @@ Tweet - Also referred to as a ‘Status’ object, has many ‘root-level’ att
 - Extended Entities - Contains up to four native photos, or one video or animated GIF.
 - Places - Parent to ‘coordinates’ object.
 ---
+**Tweet Object Feature Table Selection**
+FeatureID | Type | Usage Description
+---|---|---
+-[ ] created_at|date text| Date text -> Date time, time stamp of the tweets 
+
+
+
+
+### Sample tweet Json file
 ```json
 {
    "tweet_data": {
