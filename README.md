@@ -12,8 +12,8 @@ Tweet - Also referred to as a ‘Status’ object, has many ‘root-level’ att
 
 FeatureID | Type | Usage Description 
 ---------|-------|-----------------
-1. created_at |date text  | Date text -> Date time, time stamp of the tweets
-2.  asdfsaf | b | c
+created_at |date text  | Date text -> Date time, time stamp of the tweets
+asdfsaf | b | c
 
 
 
