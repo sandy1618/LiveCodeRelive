@@ -11,6 +11,7 @@ ipywidgets = "*"
 nbinteract = "*"
 scipy = "*"
 spyder = "*"
+rx = "*"
 
 [requires]
 python_version = "3.6"
