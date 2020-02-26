@@ -12,6 +12,8 @@ nbinteract = "*"
 scipy = "*"
 spyder = "*"
 rx = "*"
+pandas = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.6"
