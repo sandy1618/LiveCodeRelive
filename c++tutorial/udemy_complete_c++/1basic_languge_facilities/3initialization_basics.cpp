@@ -1,3 +1,5 @@
+// unifor initializations is useful because: 
+//It automatically initializes the variable to 0 (or pointers to nullptr), thereby preventing runtime bugs
 #include <string>
 #include <iostream>
 
