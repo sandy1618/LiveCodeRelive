@@ -1,10 +1,10 @@
  //Range-based for loop - similar usage like python
- //range can be on any interator based containers 
+ //range can be on any ITERATOR based containers 
  #include <iostream>
 
  int main(){
     using namespace std;
-    int arr[] = { 1,2,3,4,5 };
+    int arr[] = { 1,2,3,4,5 };//aggregate initializer
     //Traditional index-based    
     for (int i = 0; i<5; i++ ){
         cout << arr[i] << " ";
@@ -23,6 +23,8 @@
         cout << x << " " ;
     }
     cout << "Pass-by reference range-based for loop" << endl;
+
+
 
     // implementing range based without using for loop, more concepts in video:II
     int *begin = &arr[0]; // or just name arr

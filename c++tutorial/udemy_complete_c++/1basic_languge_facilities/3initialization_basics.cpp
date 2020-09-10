@@ -21,7 +21,7 @@ int main(){
     // int b2() ; //Most vexing parse , because direct initialization without a value can be thought of an empty function.
     int b3{5} ; // Direct initialization using {} 
 
-    char e1[8]{};
+    char e1[8]{}; // Initializing an array 
     char e2[8]{"Hello"};
 
 }
@@ -31,6 +31,4 @@ Do value initializtion for user_defined functions
 1. Value initialization => T obj{} ;
 2. Direct initialization => T obj{v} ;
 3. Copy initialization => T obj = v ;
-
-
 */

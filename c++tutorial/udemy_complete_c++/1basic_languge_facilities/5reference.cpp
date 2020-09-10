@@ -4,7 +4,7 @@ int main(){
    //referent
     int x = 10;
      //  reference 
-    int &ref = x ;
+    int &ref = x ;// requires an l-value and reference by copy assignment.
 
     int y = 2 ;
     ref = y ;
@@ -13,7 +13,5 @@ int main(){
 
     return 0 ;
 }
-
-
 // x : 2
 // ref: 2

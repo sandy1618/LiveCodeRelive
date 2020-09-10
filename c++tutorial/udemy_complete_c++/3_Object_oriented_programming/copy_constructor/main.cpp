@@ -1,18 +1,22 @@
 #include "Integer.h"
 #include <iostream>
+// Declaration of Class
+//#pragma once : Use it in header files to avoide diamond problem:ie class redefinition
 class Integer{
         int *m_pInt;
     public:
-        Integer();
-        Integer(int value);
-        // const keyword to aboud modification of original object
+        Integer();// Default Constructor 
+        Integer(int value); // Parameterized constructors
+        // const keyword to aborts modification of original object
+        // Copy Constructos
         Integer(const Integer &obj);// if we pass object by value, again copy will be created, so shallow copy again, so pass by reference, 
-        int GetValue() const;
+        int GetValue() const; // Constant function: Read only functions!!
         void SetValue(int value);
         // User defined destructor for releasing the resources allocated by constructor
         ~Integer(); 
 };
 
+// Definition of my Class
 //Integer.cpp
 Integer::Integer(){
     m_pInt = new int(0);
@@ -39,9 +43,6 @@ Integer::~Integer(){
     delete m_pInt;
 }
 
-
-
-
 // If I want to create a copy of the object state, I can do in multiple ways.
 // passing object by value creates a copy of object state
 void Print(Integer i){
@@ -52,8 +53,7 @@ Integer Add(int x, int y){
     return Integer(x + y);
 }
 
-
-
+// Using in main() function
 int main() {
     
     // Directly creating a copy object ( thats where copy contructor is used)

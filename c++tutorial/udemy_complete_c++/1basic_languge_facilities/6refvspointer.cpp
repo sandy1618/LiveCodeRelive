@@ -1,5 +1,6 @@
  #include <iostream>
 
+// // PASSING FUNCTION BY VALUE
 //  void Swap(int  x, int y){
 //      int temp = x;
 //      x = y;
@@ -9,17 +10,16 @@
 //  int main(){
 //      using namespace std ;
 //      int a = 5, b = 3;
-//      Swap(a,b) ; // passing variables by value 
+//      Swap(a,b) ; // passing variables by value, SO COPIES ARE CREATED
 //      cout << "a:" << a << "\n " ;
 //      cout << "b:" << b << "\n " ;
 //      return 0;
-
 
 //  }
 // //  a:5  // did not swap
 // //  b:3
 
-
+// //PASSING FUCTION BY ADDRESS
 //  void Swap(int  *x, int *y){
 //      int temp = *x;
 //      *x = *y;
@@ -33,19 +33,11 @@
 //      cout << "a:" << a << "\n " ;
 //      cout << "b:" << b << "\n " ;
 //      return 0;
-
-
 //  }
 // //  a:3  // Swapped with passing by address 
 // //  b:5
 
-
-
-
-
-
-
-
+ // PASSING FUNCTIONS BY REFERENCES
  void Swap(int  &x, int &y){
      int temp = x;
      x = y;
@@ -59,13 +51,9 @@
      cout << "a:" << a << "\n " ;
      cout << "b:" << b << "\n " ;
      return 0;
-
-
  }
 //  a:3  // Swapped with passing by reference 
 //  b:5
-
-
 
 // Advantage of references over pointer 
 // cleaner code like python

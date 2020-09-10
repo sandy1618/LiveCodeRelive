@@ -6,6 +6,7 @@
 // used with references 
 
 // #include <iostream>
+// // WHY USE CONST QUALIFIER 
 // int main(){
 //     using namespace std;
 //     float radius {0} ;
@@ -16,43 +17,31 @@
 //     float area = PI * radius * radius;
 //     cout << "Area is :" << area << endl ;
 //     return 0;
-
-
-// }
+//     }
 
 
 
-// //More on const with pointer & references 
+// //MORE ON CONST WITH POINTER AND REFERENCES
 // #include <iostream>
-
 // int main(){
 //     using namespace std;
+
 //     const int CHUNCK_SIZE = 512 ;// ptr is pointer to integer of type const.
-
-
 //     // int *ptr = &CHUNCK_SIZE; // This cases error because my int is const but pointer is not pointing to cont int , 
-//     // //error:  error: invalid conversion from ‘const int*’ to ‘int*’
-//     // // if creating pointer to constant, then add constant in begining. 
-//     // // it means that the address that ptr is pointing to, is itself not constant but the value is .
-  
+//     // error:  error: invalid conversion from ‘const int*’ to ‘int*’
+//     // if creating pointer to constant, then add constant in begining. 
+//     // it means that the address that ptr is pointing to, is itself not constant but the value is .
+//     const int *ptr = &CHUNCK_SIZE;
+//     //This means that *ptr is constant (ie ptr's value) but ptr is not . ie. the pointer is not constant.
+//     *ptr = 1; // error , because the *ptr is a value == CHUNCK_SIZE == const int.
 
+//     int x = 10;
+//     ptr  = &x; // compiler will not allow this also, because, we declared that pointer is  pointing to a constant value.
+//     *ptr = 1;//error: assignment of read-only location ‘*ptr’
 
-//     // const int *ptr = &CHUNCK_SIZE;
-//     // //This means that *ptr is constant (ie ptr's value) but ptr is not . ie. the pointer is not constant.
-//     // // *ptr = 1; // error , expressiion must be 
-//     // int x = 10;
-//     // ptr  = &x; // compiler will not allow this also, because, we told that it is pointing to a constant value.
-//     // *ptr = 1;//error: assignment of read-only location ‘* ptr’
-
-
-
-//     // const int *const ptr = &CHUNCK_SIZE; //ptr itself is const. pointer to an const integer.
+//     const int *const ptr = &CHUNCK_SIZE; //ptr itself is const. pointer to an const integer.
 //     // const pointers are useful when passind by address to functions. as Inside the functions the values are unchanged. 
-
-
 // }
-
-
 
 // //Use of const to pass as arguments inside functions. Pass by address
 // #include <iostream>
@@ -62,6 +51,7 @@
 // //     cout << *ptr << endl ;
 // //     *ptr = 799;    
 // // }
+// // // output: 
 // // // 10
 // // // main->x :799
 
@@ -99,3 +89,6 @@ int main(){
     return 0;
 
 }
+// output
+// 10
+// main->x: 10

@@ -21,8 +21,8 @@ int main(){
     void (*ptr) (int,char) = &Print;// also just Print will work because funciton name is address like treatement by c++
     (*ptr)(8,'$'); // standard way of calll 
     ptr (8,'%'); // can also call directly the pointer name.
-
     return 0;
-    
-
 }
+// #####
+// $$$$$$$$
+// %%%%%%%%

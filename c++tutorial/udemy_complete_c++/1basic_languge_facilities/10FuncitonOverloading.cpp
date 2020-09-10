@@ -17,7 +17,7 @@ void Print(int *x){
     std::cout << *x <<"\t=>funciton accepts a pointer" << std::endl; 
 }
 
-//function accepts a constant pointer. Note: C++ does not care about spaces. 
+//function accepts a  pointer to const int. Note: C++ does not care about spaces. 
 void Print(const int *  x){
     std::cout << *x <<"\t=>function accepts a constant pointer"<< std::endl;
 }

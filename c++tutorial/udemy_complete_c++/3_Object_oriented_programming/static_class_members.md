@@ -15,6 +15,7 @@
  int Car::totalCars = 0 ; // default initialize to 0
 
 ### Static Member functions 
+- Can only access static members of class
 - functions qulaified with static keyworkd 
 - require only in declaration
 - belong to class but not objects 

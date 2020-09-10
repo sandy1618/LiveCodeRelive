@@ -30,7 +30,4 @@ int main(){
     auto *ptr = &z; // const float *ptr , like reference, qualifier taken 
 
     auto list = { 1,2,3,4 };//initializer_list list, also remeber #include <initializer_list>
-
-
-
 }   

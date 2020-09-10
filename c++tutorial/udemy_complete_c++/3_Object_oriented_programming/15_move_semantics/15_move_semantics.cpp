@@ -19,7 +19,6 @@ class Integer{
         // Implementing move constructor, r-value reference 
         Integer(Integer &&obj);
 
-
         int GetValue() const;
         void SetValue(int value);
         // User defined destructor for releasing the resources allocated by constructor
@@ -27,11 +26,12 @@ class Integer{
 };
 
 //Integer.cpp
+// Default constructor
 Integer::Integer(){
     std::cout << "Integer()" << std::endl;
     m_pInt = new int(0);
 }
-
+//Parameterized constructor
 Integer::Integer(int value){
     std::cout << "Integer(int) " << std::endl;
     m_pInt = new int(value);
@@ -65,17 +65,23 @@ Integer::~Integer(){ // Destructor
     delete m_pInt;
 }
 
-
 Integer Add(const Integer &a, const Integer &b){
     Integer temp; //default constructor call for integer temp
     temp.SetValue(a.GetValue() + b.GetValue());
-    return temp; //return, so a copy constutor call also needed
+    return temp; //return, so a copy constutor call, but if move constructor defnition is there, 
+    //compiler chooses move constructor for faster copy
 }
 
 int main() {
-    Integer a(1),b(3);
+    Integer a(1),b(3); // two parametrerized constructor call.
     a.SetValue(Add(a,b).GetValue()); // Add returns a temperory integer object
-
-
     return 0;
 }
+
+// Integer(int) 
+// Integer(int) 
+// Integer()
+// Integer(Integer &&obj)
+// ~Integer()
+// ~Integer()
+// ~Integer()
