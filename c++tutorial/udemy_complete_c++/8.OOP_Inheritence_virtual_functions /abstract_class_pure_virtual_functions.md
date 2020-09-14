@@ -8,6 +8,8 @@ A pure virtual funciton cannot be invoked. if inovoked, only used by derived cla
 
 MUST be overriden by the derived classes. If not overridden, then the derived class also become an 
 abstract class which again cannot be instantiaated. 
+
+#### The derived class must implement all the pure virtual function of the super base class 
 ### Abstract class 
 Abstract class has atleast one pure virtual function . 
 Abstract Class cannot be instanciated ? 

@@ -11,7 +11,7 @@ class base_print{
        
 };
 
-class child_print: public base_print{
+class child_print: public base_print {
     public:
     // When using override, the child member function signature must be same as base member funciton signature. 
     // void Print(const float&x) = delete;
