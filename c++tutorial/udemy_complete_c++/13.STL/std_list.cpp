@@ -1,3 +1,5 @@
+// list and forward_list: 
+// list : double linked list , forward_list : single linked list.
 #include <iostream>
 #include <list>
 void List(){

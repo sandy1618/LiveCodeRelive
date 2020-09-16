@@ -1,6 +1,8 @@
 #include <iostream>
 #include <map> // contains both map and mutlimap
 // multimap allows duplicate keys with diff.
+// Remember for a Map: The contents are always pair objects. x.first, x.second
+
 void Map() {
 	std::map<int, std::string> m{
 		{1, "Superman"},
@@ -53,7 +55,7 @@ void Multimap() {
 	m.insert(std::make_pair(6, "Wonder Woman"));
 	m.insert(std::make_pair(6, "Powergirl"));
 
-	//Only map support [] operator
+	//Only map support [] operator, not multi_map
 	/*m[0] = "Flash";
 	m[0] = "Kid Flash";*/
 	auto itr = m.begin();
