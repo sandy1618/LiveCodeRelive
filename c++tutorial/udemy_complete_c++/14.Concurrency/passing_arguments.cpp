@@ -1,0 +1,1 @@
+// A constructor to a thread function is a variadic funciton
