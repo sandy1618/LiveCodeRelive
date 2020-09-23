@@ -1,0 +1,10 @@
+#include<iostream>
+
+using namespace std;
+main() {
+   enum { 
+      india, is = 7, GREAT 
+   };
+
+   cout<<india<<" "<<GREAT;
+}
