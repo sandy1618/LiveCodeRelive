@@ -21,12 +21,12 @@ else
     echo "requirements.txt not found. No packages were installed."
 fi 
 
-# Ask user to deactivate venv 
-read -p "Do you want to deactivate the venv (y/n) ? " -n 1 -r 
-echo 
-if [[$REPLY =~ ^[Yy]$]];then 
+# Ask if the user wants to deactivate the virtual environment
+read -p "Do you want to deactivate the virtual environment (y/n)? " -n 1 -r
+echo  # Add a newline for better output formatting
+if [[ $REPLY =~ ^[Yy]$ ]]; then
     deactivate
-    echo "Virtual env deactivated" 
+    echo "Virtual environment deactivated."
 else
-    echo "Virtual env active. " 
+    echo "Virtual environment is still active. You can deactivate it manually using 'deactivate'."
 fi
