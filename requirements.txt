@@ -9,3 +9,7 @@ statsmodels
 xgboost
 catboost
 
+#testing library
+pytest
+pluggy
+iniconfig
